@@ -4,15 +4,18 @@ Parameters:
   InstanceType:
     Description: "EC2 instance type"
     Type: String
-    Default: "{{instance_type}}"
+    Default: "t2.micro"
 
 Resources:
   MyEC2Instance:
     Type: "AWS::EC2::Instance"
     Properties:
       InstanceType: !Ref InstanceType
-      KeyName: "{{key_name}}"
-      ImageId: "{{key_name}}"
+      KeyName: "testKey1120"
+      ImageId: "testId"
+      Number :"1"
+      Number2:"01"
+      Number3:"001"
       SecurityGroups:
         - !Ref InstanceSecurityGroup
 
@@ -24,7 +27,7 @@ Resources:
         - IpProtocol: "tcp"
           FromPort: "22"
           ToPort: "22"
-          CidrIp: "{{cidr_ip}}"
+          CidrIp: "192.168.1.0/27"
 
 Outputs:
   InstanceId:
