@@ -46,6 +46,10 @@ def folder_selected(self, value):
                 print(f"{yaml_file}の読み取り中にエラーが発生しました: {exc}")
     else:
         print(f"フォルダが存在しません: {folder_path}")
+
+    # プレースホルダ設定ボタンを有効化
+    self.placeholder_button['state'] = 'normal'
+        
     # YAMLコンテンツを配列のままanalyze_placeholdersに引き渡し、プレースホルダを分析
     analyze_placeholders(yaml_contents, folder_path)
     

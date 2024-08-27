@@ -37,7 +37,7 @@ class MainApplication:
         self.folder_menu = ttk.OptionMenu(self.folder_frame, self.folder_var, "")
         self.folder_menu.pack(pady=10)
         
-        self.placeholder_button = tk.Button(self.folder_frame, text="プレースホルダ設定", bg="#4CAF50", fg="white", font=("Helvetica", 12), command=self.show_placeholder_frame)
+        self.placeholder_button = tk.Button(self.folder_frame, text="プレースホルダ設定", state="disabled", bg="#4CAF50", fg="white", font=("Helvetica", 12), command=self.show_placeholder_frame)
         self.placeholder_button.pack(pady=10)
         
         # フォルダ操作関数のバインド
@@ -103,8 +103,7 @@ class MainApplication:
 
         # Yaml生成ボタンの追加
         def generate_yaml():
-            export_folder = os.path.join(os.path.dirname(__file__), 'export')
-            generate_yaml_from_placeholders(placeholders, get_global_folder_path(), export_folder)
+            generate_yaml_from_placeholders(placeholders, get_global_folder_path(), 'export')
 
         yaml_button = tk.Button(placeholder_frame, text="Yaml生成", bg="#4CAF50", fg="white", font=("Helvetica", 12), command=generate_yaml)
         yaml_button.pack(side=tk.LEFT, pady=10, padx=(0, 10))

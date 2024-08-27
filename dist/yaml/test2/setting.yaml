@@ -1,0 +1,30 @@
+VARIABLE:
+    base_number: 1
+    calc01: 10
+    calc02: 20
+PLACEHOLDER:
+    increment_number1:
+        Type: zeroPadding
+        TypeValue: 1
+        Default: {{base_number}}
+    increment_number2:
+        Type: zeroPadding
+        TypeValue: 2
+        Default: {{base_number}}
+    increment_number3:
+        Type: zeroPadding
+        TypeValue: 3
+        Default: {{base_number}}
+    instance_type:
+        Default: t2.micro
+    key_name:
+        Type: Formula
+        Default: testKey[{{base_number}}+{{calc01}}][{{base_number}}*{{calc02}}]
+    image_id:
+        Default: testId
+    cidr_ip:
+        Default: 192.168.1.0/27
+
+# 計算も行いたい
+# {{calc_number|calc:Formula01|}}
+# calc_numberで指定された値をFomula01で指定された値で計算する
